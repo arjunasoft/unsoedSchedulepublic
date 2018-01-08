@@ -3,12 +3,26 @@ package controllers;
 import play.*;
 import play.mvc.*;
 
-import views.html.*;
+import java.util.*;
+
+import models.*;
 
 public class Application extends Controller {
 
-    public static Result index() {
-        return ok(index.render("Your new application is ready."));
+    public static void index() {
+        render();
     }
+    public static void NewMataKuliah(){
+    	render();
+    }
+    public static void BuatBaru(MataKuliah objmatkul){
+    	objmatkul.SetID();
+    	render(objmatkul);
+    }
+    public void print(){
+		List DaftarMatkul=MataKuliah.findAll();
+		render(DaftarMatkul);
+	}
+
 
 }
